@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400&display=swap');
+
+:root {
+    --bg-color: #0a0a0a;
+    --primary-pink: #ff4d94;
+    --soft-pink: #ffb3d1;
+    --glow-pink: rgba(255, 77, 148, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+#container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.page {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    position: relative;
+    padding: 2rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Background Soft Light Effects */
+.page::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--glow-pink);
+    filter: blur(100px);
+    border-radius: 50%;
+    z-index: -1;
+    top: 20%;
+    left: 20%;
+    animation: float 10s infinite alternate;
+}
+
+.page::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: var(--glow-pink);
+    filter: blur(120px);
+    border-radius: 50%;
+    z-index: -1;
+    bottom: 10%;
+    right: 15%;
+    animation: float-delayed 12s infinite alternate;
+}
+
+@keyframes float {
+    from { transform: translate(0, 0); }
+    to { transform: translate(50px, 50px); }
+}
+
+@keyframes float-delayed {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-60px, -40px); }
+}
+
+.content {
+    max-width: 800px;
+    z-index: 1;
+}
+
+h1, .quote {
+    font-family: 'Dancing Script', cursive;
+    color: var(--primary-pink);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(255, 77, 148, 0.6);
+}
+
+h1 { font-size: 4rem; }
+.quote { font-size: 2rem; font-style: italic; }
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.navigation {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.navigation button {
+    background: transparent;
+    border: 1px solid var(--primary-pink);
+    color: var(--primary-pink);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navigation button:hover {
+    background: var(--primary-pink);
+    color: white;
+    box-shadow: 0 0 15px var(--primary-pink);
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.btn {
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-pink);
+    color: white;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 20px var(--primary-pink);
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-pink);
+    color: var(--primary-pink);
+}
+
+.heart {
+    color: var(--primary-pink);
+    font-size: 3rem;
+    margin-top: 1rem;
+    animation: beat 1s infinite alternate;
+}
+
+@keyframes beat {
+    to { transform: scale(1.2); }
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm So Sorry, My Love</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="container">
+        <section id="page-1" class="page">
+            <div class="content">
+                <h1>I'm So Sorry</h1>
+                <p class="quote">"The weak can never forgive. Forgiveness is the attribute of the strong." — Mahatma Gandhi</p>
+                <p>I know I messed up, and I can't express how sorry I am for the insensitive things I said. Please forgive me.</p>
+                <div class="heart">❤</div>
+            </div>
+        </section>
+        <section id="page-2" class="page">
+            <div class="content">
+                <h1>How Much I Love You</h1>
+                <p>My love for you is deeper than any ocean and brighter than any star. You are my world, my everything, and I never want to lose you.</p>
+                <p>Every moment with you is a treasure I hold dear to my heart.</p>
+                <div class="heart">❤❤</div>
+            </div>
+        </section>
+        <section id="page-3" class="page">
+            <div class="content">
+                <h1>I Didn't Mean It</h1>
+                <p>Those words I said... they weren't from my heart. I let my emotions get the best of me, and I spoke without thinking.</p>
+                <p>Please know that I would never intentionally hurt you. You mean too much to me for that.</p>
+                <div class="heart">❤❤❤</div>
+            </div>
+        </section>
+        <section id="page-4" class="page">
+            <div class="content">
+                <h1>Do You Still Love Me?</h1>
+                <p>I hope we can move past this. You are the most important person in my life.</p>
+                <div class="btn-container">
+                    <button class="btn btn-primary" onclick="alert('I love you so much!')">Yes, I do</button>
+                    <button class="btn btn-secondary" id="no-btn" onmouseover="moveButton()">No</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <nav class="navigation">
+        <button onclick="scrollToPage('page-1')">1</button>
+        <button onclick="scrollToPage('page-2')">2</button>
+        <button onclick="scrollToPage('page-3')">3</button>
+        <button onclick="scrollToPage('page-4')">4</button>
+    </nav>
+
+    <script>
+        function scrollToPage(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function moveButton() {
+            const btn = document.getElementById('no-btn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+    </script>
+</body>
+</html>
